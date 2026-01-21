@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # dependencies
 node_modules
 
@@ -21,3 +22,6 @@ pnpm-debug.log*
 
 # misc
 .vercel
+=======
+node_modules
+>>>>>>> restore-style
