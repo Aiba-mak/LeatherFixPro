@@ -18,19 +18,31 @@ body {
   margin: 0;
   min-height: 100vh;
   color: #f8fafc;
-  background-image:
-    linear-gradient(180deg, rgba(2, 6, 50, 0.1), rgba(2, 6, 23, 0.1)),
+  background-color: #020617;
+  position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("/images/background.jpg");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
 }
 
 main {
   padding: 4rem 1.25rem 5rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -574,6 +586,23 @@ a {
 
   .hero-image-wrapper {
     height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .quote-column {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .quote-form .form-input,
+  .quote-form textarea,
+  .quote-submit {
+    width: 100%;
   }
 }
 
