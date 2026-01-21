@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 
+const PRIMARY_PHONE_DISPLAY = "+1 (445) 225-3515";
+const PRIMARY_PHONE_LINK = "tel:+14452253515";
+
 const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "Before/After", href: "#before-after" },
   { label: "Gallery", href: "#gallery" },
   { label: "FAQs", href: "#faqs" },
   { label: "Contact", href: "#contact" },
@@ -27,16 +29,26 @@ export function Header() {
         <a href="#top" className="brand">
           LeatherFixPro
         </a>
-        <nav className="nav-links desktop-nav">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link">
-              {link.label}
+        <div className="desktop-nav-wrapper">
+          <nav className="nav-links desktop-nav">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="nav-link">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="header-contact">
+            <a className="header-phone" href={PRIMARY_PHONE_LINK}>
+              {PRIMARY_PHONE_DISPLAY}
             </a>
-          ))}
-          <a className="call-now" href="tel:+18009998877">
-            Call Now
-          </a>
-        </nav>
+            <a className="quote-cta" href="#quote">
+              Request a Quote
+            </a>
+            <a className="call-now" href={PRIMARY_PHONE_LINK}>
+              Call Now
+            </a>
+          </div>
+        </div>
         <button
           type="button"
           className="mobile-menu-button"
@@ -47,6 +59,11 @@ export function Header() {
         </button>
       </div>
       <nav className={`mobile-nav ${menuOpen ? "open" : ""}`}>
+        <div className="mobile-contact">
+          <a className="header-phone" href={PRIMARY_PHONE_LINK} onClick={handleLinkClick}>
+            {PRIMARY_PHONE_DISPLAY}
+          </a>
+        </div>
         {navLinks.map((link) => (
           <a
             key={`mobile-${link.href}`}
@@ -57,7 +74,10 @@ export function Header() {
             {link.label}
           </a>
         ))}
-        <a className="call-now" href="tel:+18009998877" onClick={handleLinkClick}>
+        <a className="quote-cta" href="#quote" onClick={handleLinkClick}>
+          Request a Quote
+        </a>
+        <a className="call-now" href={PRIMARY_PHONE_LINK} onClick={handleLinkClick}>
           Call Now
         </a>
       </nav>

@@ -37,59 +37,6 @@ export const services = [
   },
 ];
 
-export const beforeAfterPairs = [
-  {
-    label: "Automotive leather",
-    before: "/images/before-after/before1.jpg",
-    after: "/images/before-after/after1.jpg",
-  },
-  {
-    label: "Commercial seating",
-    before: "/images/before-after/before2.jpg",
-    after: "/images/before-after/after2.jpg",
-  },
-  {
-    label: "Marine / RV trim",
-    before: "/images/before-after/before3.jpg",
-    after: "/images/before-after/after3.jpg",
-  },
-];
-
-export const galleryImages = [
-  {
-    src: "/images/gallery/automotive/automotive1.jpg",
-    alt: "Sleek automotive leather repair",
-  },
-  {
-    src: "/images/gallery/automotive/automotive2.jpg",
-    alt: "Custom leather panel finish",
-  },
-  {
-    src: "/images/gallery/commercial/commercial1.jpg",
-    alt: "Commercial seating restoration",
-  },
-  {
-    src: "/images/gallery/commercial/commercial2.jpg",
-    alt: "Lobby furniture brought back to life",
-  },
-  {
-    src: "/images/gallery/furniture/furniture1.jpg",
-    alt: "High-end furniture repair",
-  },
-  {
-    src: "/images/gallery/furniture/furniture2.jpg",
-    alt: "Living room sofa refinished",
-  },
-  {
-    src: "/images/gallery/rv-marine/rv1.jpg",
-    alt: "RV leather lounge refreshed",
-  },
-  {
-    src: "/images/gallery/rv-marine/rv2.jpg",
-    alt: "Marine seating with renewed sheen",
-  },
-];
-
 export const faqs = [
   {
     question: "Do you travel to my location?",

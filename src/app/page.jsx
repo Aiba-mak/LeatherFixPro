@@ -1,7 +1,11 @@
 import Image from "next/image";
-import { beforeAfterPairs, faqs, galleryImages, howItWorks, services } from "../data/content";
+import Gallery from "../components/Gallery";
+import QuoteForm from "../components/QuoteForm";
+import { faqs, howItWorks, services } from "../data/content";
+import { getGalleryImages } from "../lib/gallery";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const galleryImages = await getGalleryImages();
   return (
     <main>
       <section id="top" className="hero">
@@ -16,17 +20,18 @@ export default function HomePage() {
             <a className="primary-cta" href="#contact">
               Book Service
             </a>
-            <a className="secondary-cta" href="tel:+18009998877">
+            <a className="secondary-cta" href="tel:+14452253515">
               Call Now
             </a>
           </div>
         </div>
-        <div className="hero-figure">
+        <div className="hero-image-wrapper">
           <Image
             src="/images/hero/hero.jpg"
             alt="Leather technician working"
-            width={540}
-            height={360}
+            fill
+            sizes="(min-width: 960px) 540px, 100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
             priority
           />
         </div>
@@ -68,45 +73,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="before-after" className="section">
-        <h2 className="section-title">Before &amp; After</h2>
-        <p className="section-description">
-          See how we blend pigments and repair structure to make aging leather look showroom fresh again.
-        </p>
-        <div className="before-after-grid">
-          {beforeAfterPairs.map((pair) => (
-            <article key={pair.label} className="before-after-card">
-              <strong>{pair.label}</strong>
-              <Image
-                src={pair.before}
-                alt={`${pair.label} before repair`}
-                width={600}
-                height={320}
-              />
-              <Image
-                src={pair.after}
-                alt={`${pair.label} after repair`}
-                width={600}
-                height={320}
-              />
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="gallery" className="section">
-        <h2 className="section-title">Gallery</h2>
-        <p className="section-description">
-          Curated highlights from automotive, furniture, and marine jobs—we let the finishes speak for themselves.
-        </p>
-        <div className="gallery-grid">
-          {galleryImages.map((image) => (
-            <figure key={image.src} className="gallery-item">
-              <Image src={image.src} alt={image.alt} width={400} height={280} />
-            </figure>
-          ))}
-        </div>
-      </section>
+      <Gallery images={galleryImages} />
 
       <section id="faqs" className="section">
         <h2 className="section-title">FAQs</h2>
@@ -128,15 +95,28 @@ export default function HomePage() {
         <p className="section-description">
           Book consultations, request commercial estimates, or ask about our pickup and delivery partners.
         </p>
-        <div className="contact-card">
-          <p>
-            Phone: <a href="tel:+18009998877">+1 (800) 999-8877</a>
-          </p>
-          <p>
-            Email: <a href="mailto:info@leatherfixpro.com">info@leatherfixpro.com</a>
-          </p>
-          <p>Serving automotive, residential, commercial, and marine interiors from Portland to Salem.</p>
-          <p>Same-day estimates, flexible appointments, and a fully mobile setup.</p>
+        <div className="contact-grid">
+          <div id="quote" className="quote-column">
+            <h3>Request a Quote</h3>
+            <p className="section-description">
+              Share the scope of work, preferred timing, and any special requirements—we'll reply with a transparent
+              plan.
+            </p>
+            <QuoteForm />
+          </div>
+          <div className="contact-card">
+            <p>
+              Phone: <a href="tel:+14452253515">+1 (445) 225-3515</a>
+            </p>
+            <p>
+              Phone: <a href="tel:+12135440940">+1 (213) 544-0940</a>
+            </p>
+            <p>
+              Email: <a href="mailto:leatherfixpro.1@gmail.com">leatherfixpro.1@gmail.com</a>
+            </p>
+            <p>Serving automotive, residential, commercial, and marine interiors from Portland to Salem.</p>
+            <p>Same-day estimates, flexible appointments, and a fully mobile setup.</p>
+          </div>
         </div>
       </section>
     </main>
