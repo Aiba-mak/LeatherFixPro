@@ -1,5 +1,4 @@
 "use client";
-
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 
 const FALLBACK_FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_ME"; // Replace REPLACE_ME with your real Formspree form ID.
